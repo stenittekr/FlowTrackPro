@@ -1,4 +1,8 @@
 Flask==3.0.0
 Werkzeug
 pytest
+gunicornFlask==3.0.0
+Werkzeug
+pytest
 gunicorn
+Flask-Mail==0.10.0
