@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FlowTrack Pro Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+<aside class="sidebar">
+    <h2>FlowTrack Pro</h2>
+
+    <a href="/">Dashboard</a>
+    <a href="/projects">Projects</a>
+    <a href="/kanban">Kanban Board</a>
+    <a href="/audit-logs">Audit Logs</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/users">Users</a>
+    <a href="/reports">Reports</a>
+    <a href="/approvals">Approvals</a>
+    <a href="/notifications">Notifications</a>
+</aside>
+    <main class="main">
+        <div class="topbar">
+            <h1>Enterprise Workflow Dashboard</h1>
+          <span>
+    Welcome {{ username }}
+    ({{ role }})
+    |
+    <a href="/logout">Logout</a>
+</span>
+        </div>
+
+        <section class="cards">
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Backlog</h3>
+                <p id="backlogTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>In Progress</h3>
+                <p id="progressTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Done</h3>
+                <p id="doneTasks">0</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Create New Task</h2>
+
+            <div class="form-row">
+               <input
+    id="taskTitle"
+    placeholder="Task Title">
+
+<select id="assignedUser">
+</select>
+
+<input
+    id="dueDate"
+    type="date">
+
+                <select id="taskPriority">
+                    <option value="High">High Priority</option>
+                    <option value="Medium" selected>Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                </select>
+
+                <button onclick="createTask()">Add Task</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Task Management</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Task</th>
+                        <th>Status</th>
+                        <th>Priority</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="taskTable"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

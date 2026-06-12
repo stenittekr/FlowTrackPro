@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notifications - FlowTrack Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+    <aside class="sidebar">
+        <h2>FlowTrack Pro</h2>
+        <a href="/">Dashboard</a>
+        <a href="/projects">Projects</a>
+        <a href="/kanban">Kanban Board</a>
+        <a href="/approvals">Approvals</a>
+        <a href="/audit-logs">Audit Logs</a>
+        <a href="/users">Users</a>
+        <a href="/reports">Reports</a>
+        <a href="/notifications">Notifications</a>
+    </aside>
+
+    <main class="main">
+        <div class="topbar">
+            <h1>Notifications</h1>
+            <span>{{ username }} ({{ role }}) | <a href="/logout">Logout</a></span>
+        </div>
+
+        <section class="panel">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="notificationTable"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/notifications.js') }}"></script>
+</body>
+</html>

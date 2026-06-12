@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FlowTrack Pro Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-body">
+
+<div class="auth-card">
+    <h1>FlowTrack Pro</h1>
+    <h2>Create Account</h2>
+
+    <form method="POST" action="/register">
+        <input name="username" type="text" placeholder="Username" required>
+        <input name="email" type="email" placeholder="Email" required>
+        <input name="password" type="password" placeholder="Password" required>
+
+        <select name="role">
+            <option value="Admin">Admin</option>
+            <option value="Manager">Manager</option>
+            <option value="Developer" selected>Developer</option>
+            <option value="Viewer">Viewer</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="/login">Login</a>
+    </p>
+</div>
+
+</body>
+</html>

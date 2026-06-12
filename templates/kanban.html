@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FlowTrack Pro Kanban</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+<aside class="sidebar">
+    <h2>FlowTrack Pro</h2>
+
+    <a href="/">Dashboard</a>
+    <a href="/projects">Projects</a>
+    <a href="/kanban">Kanban Board</a>
+    <a href="/audit-logs">Audit Logs</a>
+    <a href="#">Tasks</a>
+    <a href="#">Users</a>
+    <a href="#">Reports</a>
+    <a href="/notifications">Notifications</a>
+</aside>
+
+    <main class="main">
+        <div class="topbar">
+            <h1>Kanban Board</h1>
+            <span>{{ username }} - {{ role }} | <a href="/logout">Logout</a></span>
+        </div>
+
+        <div class="kanban-board">
+            <div class="kanban-column">
+                <h2>Backlog</h2>
+                <div id="Backlog"></div>
+            </div>
+
+            <div class="kanban-column">
+                <h2>In Progress</h2>
+                <div id="In Progress"></div>
+            </div>
+
+            <div class="kanban-column">
+                <h2>Review</h2>
+                <div id="Review"></div>
+            </div>
+
+            <div class="kanban-column">
+                <h2>Done</h2>
+                <div id="Done"></div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/kanban.js') }}"></script>
+</body>
+</html>

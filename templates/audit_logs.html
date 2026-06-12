@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audit Logs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+   <aside class="sidebar">
+    <h2>FlowTrack Pro</h2>
+
+    <a href="/">Dashboard</a>
+    <a href="/projects">Projects</a>
+    <a href="/kanban">Kanban Board</a>
+    <a href="/audit-logs">Audit Logs</a>
+    <a href="#">Tasks</a>
+    <a href="#">Users</a>
+    <a href="#">Reports</a>
+</aside>
+
+    <main class="main">
+        <div class="topbar">
+            <h1>Audit Logs</h1>
+            <span>{{ username }} - {{ role }} | <a href="/logout">Logout</a></span>
+        </div>
+
+        <section class="panel">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Action</th>
+                        <th>Entity</th>
+                        <th>Entity ID</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log.id }}</td>
+                        <td>{{ log.username }}</td>
+                        <td>{{ log.action }}</td>
+                        <td>{{ log.entity_type }}</td>
+                        <td>{{ log.entity_id }}</td>
+                        <td>{{ log.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+</body>
+</html>

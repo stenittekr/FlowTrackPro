@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - FlowTrack Pro</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>FlowTrack Pro</h2>
+
+        <a href="/">Dashboard</a>
+        <a href="/projects">Projects</a>
+        <a href="/kanban">Kanban Board</a>
+        <a href="/audit-logs">Audit Logs</a>
+        <a href="/users">Users</a>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <div class="topbar">
+            <h1>User Management</h1>
+
+            <div>
+                {{ username }}
+                ({{ role }})
+                |
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+
+        <div class="panel">
+
+            <h2>Registered Users</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Role</th>
+<th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="userTable">
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/users.js') }}"></script>
+
+</body>
+</html>

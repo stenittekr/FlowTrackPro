@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+
+        <h2>FlowTrack Pro</h2>
+
+        <a href="/">Dashboard</a>
+        <a href="/projects">Projects</a>
+        <a href="/kanban">Kanban Board</a>
+        <a href="/audit-logs">Audit Logs</a>
+        <a href="/users">Users</a>
+        <a href="/reports">Reports</a>
+
+    </aside>
+
+    <main class="main">
+
+        <h1>Analytics Dashboard</h1>
+
+        <section class="cards">
+
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <p id="totalTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Projects</h3>
+                <p id="totalProjects">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Completed Tasks</h3>
+                <p id="completedTasks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Backlog Tasks</h3>
+                <p id="backlogTasks">0</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static',
+filename='js/reports.js') }}"></script>
+
+</body>
+</html>

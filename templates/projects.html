@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FlowTrack Pro Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="layout">
+ <aside class="sidebar">
+    <h2>FlowTrack Pro</h2>
+
+    <a href="/">Dashboard</a>
+    <a href="/projects">Projects</a>
+    <a href="/kanban">Kanban Board</a>
+    <a href="/audit-logs">Audit Logs</a>
+    <a href="#">Tasks</a>
+   <a href="/users">Users</a>
+   <a href="/reports">Reports</a>
+</aside>
+    <main class="main">
+        <div class="topbar">
+            <h1>Project Management</h1>
+            <span>{{ username }} - {{ role }} | <a href="/logout">Logout</a></span>
+        </div>
+
+        <section class="panel">
+            <h2>Create Project</h2>
+
+            <div class="form-row">
+                <input id="projectName" placeholder="Project name">
+                <input id="projectDescription" placeholder="Project description">
+                <button onclick="createProject()">Create Project</button>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Projects</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Project</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="projectTable"></tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<script src="{{ url_for('static', filename='js/projects.js') }}"></script>
+</body>
+</html>
