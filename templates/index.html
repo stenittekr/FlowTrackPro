@@ -4,6 +4,8 @@
     <title>FlowTrack Pro Dashboard</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 <body>
 
 <div class="layout">
@@ -20,6 +22,14 @@
     <a href="/approvals">Approvals</a>
     <a href="/notifications">Notifications</a>
 </aside>
+<section class="panel">
+    <h2>Task Analytics</h2>
+
+    <canvas
+        id="taskChart"
+        height="100">
+    </canvas>
+</section>
     <main class="main">
         <div class="topbar">
             <h1>Enterprise Workflow Dashboard</h1>

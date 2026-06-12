@@ -39,7 +39,48 @@ async function loadUsers() {
         `;
     });
 }
+async function loadChart() {
 
+    const response =
+        await fetch("/api/dashboard");
+
+    const data =
+        await response.json();
+
+    const ctx =
+        document.getElementById(
+            "taskChart"
+        );
+
+    new Chart(ctx, {
+
+        type: "bar",
+
+        data: {
+
+            labels: [
+                "Backlog",
+                "In Progress",
+                "Review",
+                "Done"
+            ],
+
+            datasets: [{
+
+                label: "Tasks",
+
+                data: [
+                    data["Backlog"],
+                    data["In Progress"],
+                    data["Review"],
+                    data["Done"]
+                ]
+            }]
+        }
+    });
+}
+
+loadChart();
 async function createProject() {
     const name = document.getElementById("projectName").value;
     const description = document.getElementById("projectDescription").value;

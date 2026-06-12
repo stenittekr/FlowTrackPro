@@ -517,7 +517,35 @@ def get_task_attachments(task_id):
         list_attachments(task_id)
     )
 
+@app.route("/api/dashboard")
+def dashboard_data():
 
+    conn = get_connection()
+
+    backlog = conn.execute(
+        "SELECT COUNT(*) FROM tasks WHERE status='Backlog'"
+    ).fetchone()[0]
+
+    progress = conn.execute(
+        "SELECT COUNT(*) FROM tasks WHERE status='In Progress'"
+    ).fetchone()[0]
+
+    review = conn.execute(
+        "SELECT COUNT(*) FROM tasks WHERE status='Review'"
+    ).fetchone()[0]
+
+    done = conn.execute(
+        "SELECT COUNT(*) FROM tasks WHERE status='Done'"
+    ).fetchone()[0]
+
+    conn.close()
+
+    return jsonify({
+        "Backlog": backlog,
+        "In Progress": progress,
+        "Review": review,
+        "Done": done
+    })
 @app.route("/api/tasks/<int:task_id>/attachments", methods=["POST"])
 def upload_attachment(task_id):
     if "user_id" not in session:
@@ -552,4 +580,4 @@ def upload_attachment(task_id):
     ), 201
 if __name__ == "__main__":
     init_db()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5051, debug=True)
